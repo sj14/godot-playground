@@ -15,9 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TopDown2D"
-run/main_scene="res://scenes/TopDown.tscn"
-config/icon="res://assets/player.png"
+config/name="TopDown3D"
+config/icon="res://icon.png"
 
 [rendering]
 
