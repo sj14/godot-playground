@@ -27,7 +27,16 @@ func _physics_process(delta: float):
 	
 	# Apply movement
 	var movement = speed * direction
-	move_and_slide(movement)
+	
+	if movement != Vector2():
+		if is_network_master():
+			move_and_slide(movement)
+		
+		rpc_unreliable("_set_position", global_transform.origin)
 	
 	# rotate player
 	# player.look_at(get_global_mouse_position())
+
+
+remote func _set_position(pos):
+	global_transform.origin = pos
